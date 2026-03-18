@@ -7,10 +7,21 @@ const navItems = [
 
 export function Header() {
   return (
-    <header className="flex items-center justify-between py-5 border-b border-[rgba(255,255,227,0.12)]">
+    <header className="relative flex items-center justify-between py-5 border-b border-[rgba(255,255,227,0.12)]">
       <div className="text-lg tracking-[0.04em] font-semibold">
         preiseberechnen.de
       </div>
+
+      <button
+        id="preiseberechnen-header-search-button"
+        type="button"
+        aria-label="Suche"
+        className="hidden md:inline-flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        <span className="w-3 h-3 rounded-full border-2 border-[rgba(255,255,227,0.9)] relative block">
+          <span className="absolute w-[0.45rem] h-[2px] bg-[rgba(255,255,227,0.9)] rotate-45 -right-1 -bottom-0.5 origin-center" />
+        </span>
+      </button>
 
       {/* Desktop-Navigation */}
       <nav className="hidden md:flex items-center gap-8 text-[0.95rem]">
@@ -18,15 +29,6 @@ export function Header() {
           <span>Rechner</span>
           <span className="text-[0.65rem]">▾</span>
         </div>
-        <button
-          type="button"
-          aria-label="Suche"
-          className="w-6 h-6 rounded-full border border-[rgba(255,255,227,0.2)] flex items-center justify-center"
-        >
-          <span className="w-3 h-3 rounded-full border-2 border-[rgba(255,255,227,0.9)] relative block">
-            <span className="absolute w-[0.45rem] h-[2px] bg-[rgba(255,255,227,0.9)] rotate-45 -right-1 -bottom-0.5 origin-center" />
-          </span>
-        </button>
         <a href="#" className="hover:underline">
           Über uns
         </a>
