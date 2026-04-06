@@ -26,3 +26,74 @@ body {
 .menu-panel {
   transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
 }
+
+/* FAQ: Kreis in <summary> – Outline geschlossen, gefüllt wenn <details open> */
+#preiseberechnen-faq-section summary .preiseberechnen-faq-dot {
+  background-color: transparent;
+}
+#preiseberechnen-faq-section details[open] summary .preiseberechnen-faq-dot {
+  background-color: #ffffe3;
+}
+
+/* Price Calculator: Custom Range Slider */
+.price-calculator-range-input::-webkit-slider-runnable-track {
+  height: 1px;
+  background: transparent;
+}
+.price-calculator-range-input::-moz-range-track {
+  height: 1px;
+  background: transparent;
+  border: none;
+}
+.price-calculator-range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: clamp(0.9rem, 1.6vw, 1.15rem);
+  height: clamp(0.9rem, 1.6vw, 1.15rem);
+  border-radius: 50%;
+  background: #ffffe3;
+  border: 2px solid #ffffe3;
+  margin-top: calc(clamp(0.9rem, 1.6vw, 1.15rem) / -2);
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(3, 15, 3, 0.6);
+}
+.price-calculator-range-input::-moz-range-thumb {
+  width: clamp(0.9rem, 1.6vw, 1.15rem);
+  height: clamp(0.9rem, 1.6vw, 1.15rem);
+  border-radius: 50%;
+  background: #ffffe3;
+  border: 2px solid #ffffe3;
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(3, 15, 3, 0.6);
+}
+.price-calculator-range-input:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid #ffffe3;
+  outline-offset: 3px;
+}
+.price-calculator-range-input:focus-visible::-moz-range-thumb {
+  outline: 2px solid #ffffe3;
+  outline-offset: 3px;
+}
+
+/* Price Calculator: Preis-Animation */
+.price-calc-exit {
+  animation: priceExit 0.18s ease-in forwards;
+}
+.price-calc-enter {
+  animation: priceEnter 0.18s ease-out;
+}
+.price-calc-layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+  white-space: nowrap;
+  text-align: center;
+}
+@keyframes priceExit {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-100%); opacity: 0; }
+}
+@keyframes priceEnter {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

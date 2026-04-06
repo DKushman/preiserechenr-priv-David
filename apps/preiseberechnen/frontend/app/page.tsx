@@ -1,5 +1,9 @@
 import { Button } from "./components/Button";
 import { FillCircle } from "./components/FillCircle";
+import { ProzessSection } from "./components/ProzessSection";
+import { StatsBarsSection } from "./components/StatsBarsSection";
+import { PrincipleQuoteSection } from "./components/PrincipleQuoteSection";
+import { DualCTASection } from "./components/DualCTASection";
 
 export default function Home() {
   return (
@@ -7,7 +11,10 @@ export default function Home() {
       id="preiseberechnen-main"
       className="pt-[clamp(5rem,14vh,8rem)] pb-[clamp(2.5rem,6vh,4rem)]"
     >
-      <section id="preiseberechnen-hero" className="flex flex-col gap-8 sm:gap-10 lg:gap-12 ">
+      <section
+        id="preiseberechnen-hero"
+        className="flex min-h-[100vh] flex-col gap-8 sm:gap-10 lg:gap-12 "
+      >
         <div id="preiseberechnen-hero-heading-wrapper">
           <h1
             id="preiseberechnen-hero-heading"
@@ -38,7 +45,7 @@ export default function Home() {
 
       <section
         id="preiseberechnen-feature-section"
-        className="min-h-[100vh] bg-[#ffffe3] text-[#1c120e] rounded-[clamp(1.25rem,2.2vw,2.75rem)] mt-[clamp(2.5rem,6vh,4rem)] w-[calc(100%+4vh)] mx-[-2vh]"
+        className=" bg-[#ffffe3] text-[#1c120e] rounded-[clamp(1.25rem,2.2vw,2.75rem)] mt-[clamp(2.5rem,6vh,4rem)] w-[calc(100%+4vh)] mx-[-2vh]"
       >
         <div
           id="preiseberechnen-feature-container"
@@ -73,6 +80,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <ProzessSection />
+
+      <StatsBarsSection />
+
+      <PrincipleQuoteSection />
+
+      <DualCTASection />
     </main>
   );
 }

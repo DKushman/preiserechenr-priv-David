@@ -1,10 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { getGsap } from "@/app/lib/gsap-client";
 
 type FillCircleProps = {
   sectionId: string;
@@ -14,6 +11,7 @@ export function FillCircle({ sectionId }: FillCircleProps) {
   const progressRef = useRef<SVGCircleElement | null>(null);
 
   useEffect(() => {
+    const gsap = getGsap();
     const el = progressRef.current;
     if (!el) return;
 
