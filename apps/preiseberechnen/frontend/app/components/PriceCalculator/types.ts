@@ -42,5 +42,5 @@ export type PriceCalculatorProps = {
   initialRange: [number, number];
   currency?: string;
   finalButtonLabel?: string;
-  onComplete?: (selections: Record<string, string | number>) => void;
+  onComplete?: (selections: Record<string, string | number | string[]>) => void;
 };

@@ -4,6 +4,7 @@ type StepNavigationProps = {
   currentStep: number;
   totalSteps: number;
   finalLabel?: string;
+  disableNext?: boolean;
   onBack: () => void;
   onNext: () => void;
 };
@@ -11,7 +12,8 @@ type StepNavigationProps = {
 export function StepNavigation({
   currentStep,
   totalSteps,
-  finalLabel = "Fertig",
+  finalLabel = "Ergebnis anzeigen",
+  disableNext = false,
   onBack,
   onNext,
 }: StepNavigationProps) {
@@ -31,11 +33,10 @@ export function StepNavigation({
           type="button"
           onClick={onBack}
           aria-label="Zurück zum vorherigen Schritt"
-          className="inline-flex h-[clamp(2.4rem,4.5vw,3rem)] items-center justify-center rounded-full border border-[rgba(255,255,227,0.25)] bg-transparent px-[clamp(1.8rem,3.5vw,2.5rem)] text-[clamp(0.85rem,1.3vw,1rem)] text-[var(--foreground)] transition-colors duration-200 hover:bg-[rgba(255,255,227,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--foreground)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+          className="inline-flex h-[clamp(2.4rem,4.5vw,3rem)] items-center justify-center gap-[clamp(0.15rem,0.3vw,0.2rem)] rounded-full border border-[rgba(255,255,227,0.25)] bg-transparent px-[clamp(1.8rem,3.5vw,2.5rem)] text-[clamp(0.85rem,1.3vw,1rem)] text-[var(--foreground)] transition-colors duration-200 hover:bg-[rgba(255,255,227,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--foreground)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
         >
-          <span aria-hidden="true" className="mr-[clamp(0.2rem,0.4vw,0.3rem)]">
-            &lt;
-          </span>
+          <span aria-hidden="true">←</span>
+          <span>Zurück</span>
         </button>
       )}
 
@@ -43,9 +44,15 @@ export function StepNavigation({
         id="price-calculator-nav-next"
         type="button"
         onClick={onNext}
-        className="inline-flex h-[clamp(2.4rem,4.5vw,3rem)] items-center justify-center rounded-full bg-[var(--foreground)] px-[clamp(1.8rem,3.5vw,2.5rem)] text-[clamp(0.85rem,1.3vw,1rem)] font-medium text-[var(--background)] transition-colors duration-200 hover:bg-[#f3f0c8] active:bg-[#e7e3b8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--foreground)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]"
+        disabled={disableNext}
+        className={`inline-flex h-[clamp(2.4rem,4.5vw,3rem)] items-center justify-center gap-[clamp(0.15rem,0.3vw,0.2rem)] rounded-full px-[clamp(1.8rem,3.5vw,2.5rem)] text-[clamp(0.85rem,1.3vw,1rem)] font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--foreground)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] ${
+          disableNext
+            ? "cursor-not-allowed bg-[rgba(255,255,227,0.18)] text-[rgba(255,255,227,0.35)]"
+            : "bg-[var(--foreground)] text-[var(--background)] hover:bg-[#f3f0c8] active:scale-[0.97] active:bg-[#e7e3b8]"
+        }`}
       >
-        {isLast ? finalLabel : "Weiter"}
+        <span>{isLast ? finalLabel : "Weiter"}</span>
+        {!isLast && <span aria-hidden="true">→</span>}
       </button>
     </div>
   );

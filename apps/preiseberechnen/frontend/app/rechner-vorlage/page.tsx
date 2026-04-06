@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { RechnerVorlageClient } from "./RechnerVorlageClient";
+import { PriceCalculatorLauncherOverlay } from "../components/PriceCalculatorLauncherOverlay";
 
 export const metadata: Metadata = {
   title: "Preisrechner – Vorlage",
@@ -9,8 +9,11 @@ export const metadata: Metadata = {
 
 export default function RechnerVorlagePage() {
   return (
-    <main id="rechner-vorlage-main" className="py-[clamp(3rem,6vh,5rem)]">
-      <RechnerVorlageClient />
+    <main
+      id="rechner-vorlage-main"
+      className="flex min-h-[70vh] items-center justify-center py-[clamp(3rem,6vh,5rem)]"
+    >
+      <PriceCalculatorLauncherOverlay />
     </main>
   );
 }

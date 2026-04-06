@@ -1,9 +1,9 @@
-import { Button } from "./components/Button";
 import { FillCircle } from "./components/FillCircle";
 import { ProzessSection } from "./components/ProzessSection";
 import { StatsBarsSection } from "./components/StatsBarsSection";
 import { PrincipleQuoteSection } from "./components/PrincipleQuoteSection";
 import { DualCTASection } from "./components/DualCTASection";
+import { PriceCalculatorLauncherOverlay } from "./components/PriceCalculatorLauncherOverlay";
 
 export default function Home() {
   return (
@@ -37,9 +37,7 @@ export default function Home() {
           id="preiseberechnen-hero-cta"
           className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5"
         >
-          <Button>
-            Zur Übersicht
-          </Button>
+          <PriceCalculatorLauncherOverlay />
         </div>
       </section>
 
